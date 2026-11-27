@@ -1,3 +1,49 @@
+MANUAL DE USUARIO Y GUÍA DE INSTALACIÓN
+Proyecto: DeadLight (Beta 1.1)
+PARTE 1: MANUAL DE USUARIO
+1. Introducción
+DeadLight es un videojuego de terror y supervivencia en 2D con vista top-down (cenital) y mecánicas Roguelike. Inspirado en la tensión de Lethal Company y la jugabilidad por oleadas de Megabonk, el jugador queda atrapado en una instalación oscura. Su única arma es una linterna que, además de iluminar el camino, es capaz de dañar y repeler a las criaturas que acechan en la oscuridad. El objetivo es sobrevivir a la mayor cantidad de oleadas posible, acumular puntos y derrotar al jefe final.
+
+2. Requisitos del Sistema
+Sistema Operativo: Windows 7 o superior / macOS / Linux.
+
+Software: Processing (Versión 3 o 4) y MySQL (vía XAMPP).
+
+Conexión a Internet: No requerida (el juego es totalmente offline, salvo la base de datos local).
+
+3. Controles del Juego
+W, A, S, D: Movimiento del personaje (Arriba, Izquierda, Abajo, Derecha).
+
+Mouse: Apuntar la linterna hacia una dirección.
+
+Click Izquierdo: (En los menús) Seleccionar opciones y botones.
+
+Tecla P: Pausar / Reanudar el juego.
+
+Tecla H: Activar / Desactivar el modo Debug (Muestra las hitboxes de las paredes y objetos).
+
+4. Mecánicas Principales
+Supervivencia: El jugador comienza con 100 puntos de vida. Si un enemigo lo toca, pierde vida y obtiene 1 segundo de invulnerabilidad (parpadea en rojo).
+
+Combate (Linterna): Al enfocar el haz de luz sobre un enemigo, este retrocede y recibe daño con el tiempo. Si mantienes la luz sobre el Jefe Final (Boss), este se sobrecalentará y quedará aturdido.
+
+Enemigos:
+Normal: Persigue al jugador lentamente.
+
+Verde: Se detiene a distancia y dispara proyectiles (bolitas) de energía.
+
+Azul: Se mueve mucho más rápido que los demás.
+
+Progresión (Oleadas y Salas): El juego cuenta con 4 salas. Para avanzar a la siguiente sala, debes acumular cierta cantidad de puntos eliminando enemigos. La sala 4 es la arena del Jefe Final.
+
+Sistema de Puntuación y Récords: Cada enemigo derrotado otorga puntos. Al perder (Game Over), el jugador puede ingresar su nombre y su puntuación se guardará en la base de datos MySQL, mostrándose en el Top 10 global.
+
+
+
+
+
+
+
 GUÍA DE INSTALACIÓN
 Para que el juego funcione correctamente, es fundamental configurar el entorno de base de datos (MySQL) antes de ejecutar el código en Processing.
 
