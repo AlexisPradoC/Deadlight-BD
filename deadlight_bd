@@ -1,0 +1,30 @@
+-- 1. Crear la Base de Datos
+CREATE DATABASE IF NOT EXISTS deadlight_db;
+USE deadlight_db;
+
+-- 2. Crear las Tablas
+CREATE TABLE jugadores (
+    id_jugador INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL UNIQUE
+);
+
+CREATE TABLE partidas (
+    id_partida INT AUTO_INCREMENT PRIMARY KEY,
+    id_jugador INT NOT NULL,
+    puntos INT NOT NULL,
+    oleadas INT NOT NULL,
+    fecha_partida DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_jugador) REFERENCES jugadores(id_jugador) ON DELETE CASCADE
+);
+
+-- 3. Crear una Vista (Para cumplir el requisito de la materia)
+CREATE VIEW vista_ranking AS
+SELECT j.nombre, p.puntos, p.oleadas, p.fecha_partida
+FROM partidas p
+JOIN jugadores j ON p.id_jugador = j.id_jugador
+ORDER BY p.puntos DESC
+LIMIT 10;
+
+-- 4. Insertar algunos datos de prueba
+INSERT INTO jugadores (nombre) VALUES ('Alexis Prado'), ('Leonel Apaza');
+INSERT INTO partidas (id_jugador, puntos, oleadas) VALUES (1, 5000, 10), (2, 3500, 7);
