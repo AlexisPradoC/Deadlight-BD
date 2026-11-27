@@ -1,0 +1,37 @@
+
+INSERTS
+-- Insertar un nuevo jugador
+INSERT INTO jugadores (nombre) VALUES ('Invitado_Pro');
+
+-- Insertar una nueva partida para el jugador 'Alexis Prado' (que tiene el id_jugador = 1)
+INSERT INTO partidas (id_jugador, puntos, oleadas) VALUES (1, 12500, 25);
+
+
+UPDATES
+-- Actualizar el nombre de un jugador (supongamos que Alexis quiere agregar su segundo apellido)
+UPDATE jugadores 
+SET nombre = 'Alexis Prado Castillo' 
+WHERE id_jugador = 1;
+
+-- Actualizar los puntos de una partida específica (ej: la partida número 1)
+UPDATE partidas 
+SET puntos = 6000, oleadas = 12 
+WHERE id_partida = 1;
+
+
+
+DELETES
+-- Eliminar una partida específica (por ejemplo, si se descubrió que fue un error)
+DELETE FROM partidas 
+WHERE id_partida = 2;
+
+-- Eliminar al jugador 'Invitado_Pro' (que acabamos de crear en el INSERT)
+-- Nota: Gracias al ON DELETE CASCADE, si este jugador tuviera partidas, también se borrarían automáticamente.
+DELETE FROM jugadores 
+WHERE nombre = 'Invitado_Pro';
+
+
+ALTER
+-- agrega una nueva columna
+ALTER TABLE jugadores 
+ADD COLUMN pais VARCHAR(50) DEFAULT 'Argentina';
